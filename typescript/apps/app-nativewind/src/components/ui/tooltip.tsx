@@ -1,5 +1,5 @@
 import * as TooltipPrimitive from "@rn-primitives/tooltip";
-import * as React from "react";
+import type * as React from "react";
 import { Platform, StyleSheet } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { TextClassContext } from "@/components/ui/text";

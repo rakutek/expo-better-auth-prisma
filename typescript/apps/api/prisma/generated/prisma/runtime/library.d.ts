@@ -865,40 +865,40 @@ export declare type DevTypeMapFnDef = {
 export declare namespace DMMF {
 	export {
 		datamodelEnumToSchemaEnum,
-		Document_2 as Document,
-		Mappings,
-		OtherOperationMappings,
-		DatamodelEnum,
-		SchemaEnum,
-		EnumValue,
-		Datamodel,
-		uniqueIndex,
-		PrimaryKey,
-		Model,
-		FieldKind,
-		FieldNamespace,
-		FieldLocation,
-		Field,
-		FieldDefault,
-		FieldDefaultScalar,
-		Index,
-		IndexType,
-		IndexField,
-		SortOrder,
-		Schema,
-		Query,
-		QueryOutput,
-		TypeRef,
-		InputTypeRef,
-		SchemaArg,
-		OutputType,
-		SchemaField,
-		OutputTypeRef,
-		Deprecation,
-		InputType,
-		FieldRefType,
-		FieldRefAllowType,
-		ModelMapping,
+		type Document_2 as Document,
+		type Mappings,
+		type OtherOperationMappings,
+		type DatamodelEnum,
+		type SchemaEnum,
+		type EnumValue,
+		type Datamodel,
+		type uniqueIndex,
+		type PrimaryKey,
+		type Model,
+		type FieldKind,
+		type FieldNamespace,
+		type FieldLocation,
+		type Field,
+		type FieldDefault,
+		type FieldDefaultScalar,
+		type Index,
+		type IndexType,
+		type IndexField,
+		type SortOrder,
+		type Schema,
+		type Query,
+		type QueryOutput,
+		type TypeRef,
+		type InputTypeRef,
+		type SchemaArg,
+		type OutputType,
+		type SchemaField,
+		type OutputTypeRef,
+		type Deprecation,
+		type InputType,
+		type FieldRefType,
+		type FieldRefAllowType,
+		type ModelMapping,
 		ModelAction,
 	};
 }
@@ -906,40 +906,40 @@ export declare namespace DMMF {
 declare namespace DMMF_2 {
 	export {
 		datamodelEnumToSchemaEnum,
-		Document_2 as Document,
-		Mappings,
-		OtherOperationMappings,
-		DatamodelEnum,
-		SchemaEnum,
-		EnumValue,
-		Datamodel,
-		uniqueIndex,
-		PrimaryKey,
-		Model,
-		FieldKind,
-		FieldNamespace,
-		FieldLocation,
-		Field,
-		FieldDefault,
-		FieldDefaultScalar,
-		Index,
-		IndexType,
-		IndexField,
-		SortOrder,
-		Schema,
-		Query,
-		QueryOutput,
-		TypeRef,
-		InputTypeRef,
-		SchemaArg,
-		OutputType,
-		SchemaField,
-		OutputTypeRef,
-		Deprecation,
-		InputType,
-		FieldRefType,
-		FieldRefAllowType,
-		ModelMapping,
+		type Document_2 as Document,
+		type Mappings,
+		type OtherOperationMappings,
+		type DatamodelEnum,
+		type SchemaEnum,
+		type EnumValue,
+		type Datamodel,
+		type uniqueIndex,
+		type PrimaryKey,
+		type Model,
+		type FieldKind,
+		type FieldNamespace,
+		type FieldLocation,
+		type Field,
+		type FieldDefault,
+		type FieldDefaultScalar,
+		type Index,
+		type IndexType,
+		type IndexField,
+		type SortOrder,
+		type Schema,
+		type Query,
+		type QueryOutput,
+		type TypeRef,
+		type InputTypeRef,
+		type SchemaArg,
+		type OutputType,
+		type SchemaField,
+		type OutputTypeRef,
+		type Deprecation,
+		type InputType,
+		type FieldRefType,
+		type FieldRefAllowType,
+		type ModelMapping,
 		ModelAction,
 	};
 }
@@ -1796,7 +1796,7 @@ declare namespace Extensions {
 export { Extensions };
 
 declare namespace Extensions_2 {
-	export {
+	export type {
 		InternalArgs,
 		DefaultArgs,
 		GetPayloadResultExtensionKeys,
@@ -3139,7 +3139,7 @@ export declare type Omission = Record<string, boolean | Skip>;
 declare type Omit_2<T, K extends string | number | symbol> = {
 	[P in keyof T as P extends K ? never : P]: T[P];
 };
-export { Omit_2 as Omit };
+export type { Omit_2 as Omit };
 
 export declare type OmitValue<Omit, Key> = Key extends keyof Omit
 	? Omit[Key]
@@ -3278,7 +3278,7 @@ export declare type PayloadToResult<
 declare type Pick_2<T, K extends string | number | symbol> = {
 	[P in keyof T as P extends K ? P : never]: T[P];
 };
-export { Pick_2 as Pick };
+export type { Pick_2 as Pick };
 
 declare type PrimaryKey = ReadonlyDeep_2<{
 	name: string | null;
@@ -3501,7 +3501,7 @@ declare namespace Public {
 export { Public };
 
 declare namespace Public_2 {
-	export { Args, Result, Payload, PrismaPromise, Operation, Exact };
+	export type { Args, Result, Payload, PrismaPromise, Operation, Exact };
 }
 
 declare type Query = ReadonlyDeep_2<{
@@ -3748,7 +3748,7 @@ declare type ReadonlyDeep_2<O> = {
 declare type Record_2<T extends string | number | symbol, U> = {
 	[P in T]: U;
 };
-export { Record_2 as Record };
+export type { Record_2 as Record };
 
 export declare type RenameAndNestPayloadKeys<P> = {
 	[K in keyof P as K extends "scalars" | "objects" | "composites"
@@ -3835,8 +3835,8 @@ declare type RequiredExtensionArgs = NameArgs &
 	ModelArgs &
 	ClientArgs &
 	QueryOptions;
-export { RequiredExtensionArgs };
-export { RequiredExtensionArgs as UserArgs };
+export type { RequiredExtensionArgs };
+export type { RequiredExtensionArgs as UserArgs };
 
 export declare type RequiredKeys<O> = {
 	[K in keyof O]-?: {} extends Pick_2<O, K> ? never : K;
@@ -3876,7 +3876,7 @@ export declare type Result<T, A, F extends Operation> = T extends {
 export declare type Result_2<T, A, F extends Operation> = Result<T, A, F>;
 
 declare namespace Result_3 {
-	export {
+	export type {
 		Count,
 		GetFindResult,
 		SelectablePayloadFields,
@@ -4020,7 +4020,7 @@ export declare type SelectField<
 		: never;
 
 declare type Selection_2 = Record<string, boolean | Skip | JsArgs>;
-export { Selection_2 as Selection };
+export type { Selection_2 as Selection };
 
 export declare function serializeJsonQuery({
 	modelName,
@@ -4467,7 +4467,7 @@ declare interface Transaction extends AdapterInfo, SqlQueryable {
 }
 
 declare namespace Transaction_2 {
-	export {
+	export type {
 		Options,
 		IsolationLevel_2 as IsolationLevel,
 		InteractiveTransactionInfo,
@@ -4526,8 +4526,8 @@ declare namespace Types {
 		isSkip,
 		Skip,
 		skip,
-		UnknownTypedSql,
-		OperationPayload as Payload,
+		type UnknownTypedSql,
+		type OperationPayload as Payload,
 	};
 }
 export { Types };
@@ -4578,7 +4578,7 @@ export declare type UnwrapTuple<Tuple extends readonly unknown[]> = {
 declare type UserArgs_2 = any;
 
 declare namespace Utils {
-	export {
+	export type {
 		EmptyToUnknown,
 		NeverToUnknown,
 		PatchFlat,
@@ -4644,5 +4644,3 @@ export declare const warnOnce: (
 	message: string,
 	...args: unknown[]
 ) => void;
-
-export {};

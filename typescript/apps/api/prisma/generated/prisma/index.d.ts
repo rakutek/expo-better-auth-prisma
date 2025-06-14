@@ -482,13 +482,13 @@ export namespace Prisma {
 	/**
 	 * Is T a Record?
 	 */
-	type IsObject<T extends any> = T extends Array<any>
+	type IsObject<T> = T extends Array<any>
 		? False
 		: T extends Date
 			? False
 			: T extends Uint8Array
 				? False
-				: T extends BigInt
+				: T extends bigint
 					? False
 					: T extends object
 						? True
@@ -497,7 +497,7 @@ export namespace Prisma {
 	/**
 	 * If it's T[], return T
 	 */
-	export type UnEnumerate<T extends unknown> = T extends Array<infer U> ? U : T;
+	export type UnEnumerate<T> = T extends Array<infer U> ? U : T;
 
 	/**
 	 * From ts-toolbelt
@@ -571,7 +571,7 @@ export namespace Prisma {
 		0: AtLoose<O, K>;
 	}[strict];
 
-	export type ComputeRaw<A extends any> = A extends Function
+	export type ComputeRaw<A> = A extends Function
 		? A
 		: {
 				[K in keyof A]: A[K];
@@ -626,7 +626,7 @@ export namespace Prisma {
 		1: 0;
 	}[B];
 
-	export type Extends<A1 extends any, A2 extends any> = [A1] extends [never]
+	export type Extends<A1, A2> = [A1] extends [never]
 		? 0 // anything `never` is false
 		: A1 extends A2
 			? 1
@@ -1231,7 +1231,7 @@ export namespace Prisma {
 				? T["level"]
 				: never
 			: never;
-	export type GetEvents<T extends any> = T extends Array<
+	export type GetEvents<T> = T extends Array<
 		LogLevel | LogDefinition
 	>
 		? GetLogType<T[0]> | GetLogType<T[1]> | GetLogType<T[2]> | GetLogType<T[3]>

@@ -1,5 +1,5 @@
 import * as ProgressPrimitive from "@rn-primitives/progress";
-import * as React from "react";
+import type * as React from "react";
 import { Platform, View } from "react-native";
 import Animated, {
 	Extrapolation,

@@ -3,7 +3,7 @@ import "@/../global.css";
 import {
 	DarkTheme,
 	DefaultTheme,
-	Theme,
+	type Theme,
 	ThemeProvider,
 } from "@react-navigation/native";
 import { Stack } from "expo-router";
