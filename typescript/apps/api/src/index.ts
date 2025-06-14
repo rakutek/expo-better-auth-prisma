@@ -1,7 +1,10 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { z } from 'zod'
-const app = new Hono()
+import { auth } from './lib/auth'
+const app = new Hono().on(["POST", "GET"], "/api/auth/*", (c) => {
+		return auth.handler(c.req.raw)
+	})
 
 const routes =
 app.get('/', (c) => {
