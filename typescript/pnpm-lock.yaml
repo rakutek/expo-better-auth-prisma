@@ -166,6 +166,9 @@ importers:
 
   apps/app-tamagui:
     dependencies:
+      '@better-auth/expo':
+        specifier: ^1.2.9
+        version: 1.2.9(better-auth@1.2.9)
       '@react-navigation/native':
         specifier: ^6.1.17
         version: 6.1.18(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
@@ -181,6 +184,9 @@ importers:
       babel-preset-expo:
         specifier: ~13.0.0
         version: 13.0.0(@babel/core@7.27.4)
+      better-auth:
+        specifier: ^1.2.9
+        version: 1.2.9
       burnt:
         specifier: ^0.12.2
         version: 0.12.2(expo@53.0.7(@babel/core@7.27.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)))(graphql@16.11.0)(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
@@ -190,11 +196,14 @@ importers:
       expo-build-properties:
         specifier: ~0.14.6
         version: 0.14.6(expo@53.0.7(@babel/core@7.27.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)))(graphql@16.11.0)(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))
+      expo-constants:
+        specifier: ^17.1.6
+        version: 17.1.6(expo@53.0.7(@babel/core@7.27.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)))(graphql@16.11.0)(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))
       expo-font:
         specifier: ~13.3.1
         version: 13.3.1(expo@53.0.7(@babel/core@7.27.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)))(graphql@16.11.0)(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react@19.0.0)
       expo-linking:
-        specifier: ~7.1.4
+        specifier: ~7.1.5
         version: 7.1.5(expo@53.0.7(@babel/core@7.27.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)))(graphql@16.11.0)(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
       expo-router:
         specifier: ~5.0.5
