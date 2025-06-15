@@ -8,6 +8,7 @@ import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { Provider } from './Provider'
 import { useTheme } from 'tamagui'
+import { authClient } from 'src/lib/auth-client'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -53,6 +54,8 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 function RootLayoutNav() {
   const colorScheme = useColorScheme()
   const theme = useTheme()
+  // const {data: session} = authClient.useSession()
+  // console.log(session)
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />

@@ -11,6 +11,7 @@ const config = getDefaultConfig(__dirname, {
 })
 
 config.resolver.sourceExts.push('mjs')
+config.resolver.unstable_enablePackageExports = true; 
 
 module.exports = withTamagui(config, {
   components: ['tamagui'],
