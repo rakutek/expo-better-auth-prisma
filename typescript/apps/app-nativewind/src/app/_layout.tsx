@@ -15,7 +15,7 @@ import { useColorScheme } from "@/lib/useColorScheme";
 import { PortalHost } from "@rn-primitives/portal";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { setAndroidNavigationBar } from "@/lib/android-navigation-bar";
-import { useSession } from "@/lib/auth-client"
+import { authClient } from "@/lib/auth-client"
 
 const LIGHT_THEME: Theme = {
 	...DefaultTheme,
@@ -38,11 +38,9 @@ const usePlatformSpecificSetup = Platform.select({
 });
 
 export default function RootLayout() {
-	// const { data: session, isPending } = useSession();
 	const { isDarkColorScheme } = useColorScheme();
 	usePlatformSpecificSetup();
 
-	// console.log("Session:", session);
 
 	return (
 		<ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
