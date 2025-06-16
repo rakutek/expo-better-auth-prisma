@@ -43,14 +43,7 @@ export default function RootLayout() {
   const { data: session, isPending } = authClient.useSession();
 
   const isAuthenticated = !!(session && session.user && session.user.id);
-  console.log(
-    "Authenticated:",
-    !!isAuthenticated,
-    "Session:",
-    session,
-    "Pending:",
-    isPending,
-  );
+
 
   if (isPending) {
     return null; // or loading screen
