@@ -8,6 +8,7 @@
 	"dependencies": {
 		"@better-auth/expo": "^1.2.9",
 		"@hono/zod-validator": "^0.7.0",
+		"@prisma/adapter-pg": "^6.9.0",
 		"@prisma/client": "6.9.0",
 		"better-auth": "^1.2.9",
 		"hono": "^4.7.11",

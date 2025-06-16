@@ -2,11 +2,21 @@ import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { z } from "zod";
 import { auth } from "./lib/auth";
-import { Prisma, PrismaClient } from "../prisma/generated/prisma"
+import {  PrismaClient } from "../prisma/generated/prisma"
+import { PrismaPg } from "@prisma/adapter-pg"
+
+
+export const prisma = () => {
+	const connectionString = `postgresql://postgres:postgres@127.0.0.1:54322/postgres`
+	const adapter = new PrismaPg({ connectionString })
+	const prisma = new PrismaClient({ adapter })
+	return prisma
+}
+
 
 const app = new Hono()
 .on(["POST", "GET"], "/api/auth/*", (c) => {
-	return auth(new PrismaClient()).handler(c.req.raw);
+	return auth(prisma()).handler(c.req.raw);
 });
 
 const routes = app

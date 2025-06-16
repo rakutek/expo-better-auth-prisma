@@ -41,21 +41,28 @@ export default function RootLayout() {
 	const { isDarkColorScheme } = useColorScheme();
 	usePlatformSpecificSetup();
 	const { data: session, isPending } = authClient.useSession();
-	console.log("Session:", session, "Pending:", isPending);
+	
+	const isAuthenticated = session && session.user && session.user.id;
+	console.log("Authenticated:", !!isAuthenticated, "Session:", session, "Pending:", isPending);
 
+	if (isPending) {
+		return null; // or loading screen
+	}
 
 	return (
 		<ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
 			<StatusBar style={isDarkColorScheme ? "light" : "dark"} />
-			<Stack>
-				{/* <Stack.Screen
-					name="index"
-					options={{
-						title: "Starter Base",
-						headerRight: () => <ThemeToggle />,
-					}}
-				/> */}
-				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+			<Stack screenOptions={{ headerShown: false }}>
+				<Stack.Screen 
+					name="(tabs)" 
+					options={{ headerShown: false }} 
+					redirect={!isAuthenticated}
+				/>
+				<Stack.Screen 
+					name="loginPage" 
+					options={{ headerShown: false }}
+					redirect={!!isAuthenticated}
+				/>
 			</Stack>
 			<PortalHost />
 		</ThemeProvider>
