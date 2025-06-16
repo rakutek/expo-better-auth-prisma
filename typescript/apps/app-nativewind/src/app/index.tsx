@@ -30,12 +30,12 @@ const GITHUB_AVATAR_URI =
 
 export default function Screen() {
 	const [progress, setProgress] = React.useState(78);
-	// const { data: session, isPending } = authClient.useSession();
+	const { data: session, isPending } = authClient.useSession();
 
 	function updateProgressValue() {
 		setProgress(Math.floor(Math.random() * 100));
 	}
-	// console.log("Session:", session);
+
 	return (
 		<View className="flex-1 justify-center items-center gap-5 p-6 bg-secondary/30">
 			<Card className="w-full max-w-sm p-6 rounded-2xl">
