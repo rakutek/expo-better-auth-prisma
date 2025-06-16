@@ -40,6 +40,8 @@ const usePlatformSpecificSetup = Platform.select({
 export default function RootLayout() {
 	const { isDarkColorScheme } = useColorScheme();
 	usePlatformSpecificSetup();
+	const { data: session, isPending } = authClient.useSession();
+	console.log("Session:", session, "Pending:", isPending);
 
 
 	return (

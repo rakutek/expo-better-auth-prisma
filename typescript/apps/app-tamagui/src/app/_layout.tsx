@@ -54,8 +54,8 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 function RootLayoutNav() {
   const colorScheme = useColorScheme()
   const theme = useTheme()
-  // const {data: session} = authClient.useSession()
-  // console.log(session)
+const { data: session, isPending } = authClient.useSession()
+  console.log('Session:', session, 'Pending:', isPending)
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
