@@ -61,7 +61,7 @@ export default function RootLayout() {
       <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
       {/* <Stack screenOptions={{ headerShown: false }}> */}
       <Stack>
-        <Stack.Protected guarded={isAuthenticated}>
+        <Stack.Protected guard={isAuthenticated}>
           <Stack.Screen
             name="(tabs)"
             options={{ headerShown: false }}

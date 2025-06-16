@@ -1,5 +1,8 @@
-import { View, Text, TouchableOpacity, Alert } from "react-native";
+import { View, Alert } from "react-native";
 import { authClient } from "@/lib/auth-client";
+import { Text } from "@/components/ui/text";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function SettingsTab() {
   const { data: session, isPending } = authClient.useSession();
@@ -14,48 +17,50 @@ export default function SettingsTab() {
 
   if (isPending) {
     return (
-      <View className="flex-1 justify-center items-center bg-gray-50">
-        <Text className="text-gray-600">読み込み中...</Text>
+      <View className="flex-1 justify-center items-center">
+        <Text>読み込み中...</Text>
       </View>
     );
   }
 
   return (
-    <View className="flex-1 p-5 bg-gray-50">
-      <Text className="text-2xl font-bold mb-8 text-gray-800">設定</Text>
+    <View className="flex-1 bg-secondary/30 p-5">
+      <Text className="text-2xl font-bold mb-8">設定</Text>
 
       {session?.user && (
-        <View className="bg-white rounded-xl p-5 mb-8 shadow-sm">
-          <Text className="text-lg font-bold mb-4 text-gray-800">
-            アカウント情報
-          </Text>
-          <View className="mb-3">
-            <Text className="text-sm text-gray-600 mb-1">メールアドレス:</Text>
-            <Text className="text-base text-gray-800 font-medium">
-              {session.user.email}
-            </Text>
-          </View>
-          <View className="mb-3">
-            <Text className="text-sm text-gray-600 mb-1">名前:</Text>
-            <Text className="text-base text-gray-800 font-medium">
-              {session.user.name || "未設定"}
-            </Text>
-          </View>
-          <View className="mb-3">
-            <Text className="text-sm text-gray-600 mb-1">ユーザーID:</Text>
-            <Text className="text-base text-gray-800 font-medium">
-              {session.user.id}
-            </Text>
-          </View>
-        </View>
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>アカウント情報</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <View>
+              <Text className="text-sm text-muted-foreground mb-1">メールアドレス:</Text>
+              <Text className="text-base font-medium">
+                {session.user.email}
+              </Text>
+            </View>
+            <View>
+              <Text className="text-sm text-muted-foreground mb-1">名前:</Text>
+              <Text className="text-base font-medium">
+                {session.user.name || "未設定"}
+              </Text>
+            </View>
+            <View>
+              <Text className="text-sm text-muted-foreground mb-1">ユーザーID:</Text>
+              <Text className="text-base font-medium">
+                {session.user.id}
+              </Text>
+            </View>
+          </CardContent>
+        </Card>
       )}
 
-      <TouchableOpacity
-        className="bg-red-500 rounded-xl p-4 items-center"
+      <Button
         onPress={handleLogout}
+        variant="destructive"
       >
-        <Text className="text-white text-base font-bold">ログアウト</Text>
-      </TouchableOpacity>
+        <Text>ログアウト</Text>
+      </Button>
     </View>
   );
 }

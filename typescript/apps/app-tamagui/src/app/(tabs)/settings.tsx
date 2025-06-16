@@ -17,7 +17,7 @@ export default function SettingsTab() {
   if (isPending) {
     return (
       <YStack flex={1} items="center" justify="center" bg="$background" p="$4">
-        <Text fontSize="$5" color="$color">
+        <Text fontSize="$5" color="$color11">
           読み込み中...
         </Text>
       </YStack>
@@ -27,45 +27,45 @@ export default function SettingsTab() {
   return (
     <YStack flex={1} bg="$background" p="$4" gap="$6">
       <YStack pt="$8">
-        <H2 textAlign="center" color="$color">
+        <H2 textAlign="center" color="$color12">
           設定
         </H2>
       </YStack>
 
       {session?.user ? (
         <YStack gap="$4">
-          <YStack bg="$backgroundHover" p="$4" rounded="$4" gap="$3">
+          <YStack bg="$color2" p="$4" rounded="$4" gap="$3" borderWidth={1} borderColor="$borderColor">
             <XStack items="center" gap="$3">
-              <User size="$1.5" color="$color" />
-              <H4 color="$color">ログイン情報</H4>
+              <User size="$1.5" color="$color11" />
+              <H4 color="$color12">ログイン情報</H4>
             </XStack>
 
             <YStack gap="$2" pl="$6">
               <XStack gap="$2">
-                <Text fontSize="$4" color="$color" fontWeight="bold">
+                <Text fontSize="$4" color="$color11" fontWeight="bold">
                   メール:
                 </Text>
-                <Paragraph fontSize="$4" color="$color">
+                <Paragraph fontSize="$4" color="$color12">
                   {session.user.email}
                 </Paragraph>
               </XStack>
 
               {session.user.name && (
                 <XStack gap="$2">
-                  <Text fontSize="$4" color="$color" fontWeight="bold">
+                  <Text fontSize="$4" color="$color11" fontWeight="bold">
                     名前:
                   </Text>
-                  <Paragraph fontSize="$4" color="$color">
+                  <Paragraph fontSize="$4" color="$color12">
                     {session.user.name}
                   </Paragraph>
                 </XStack>
               )}
 
               <XStack gap="$2">
-                <Text fontSize="$4" color="$color" fontWeight="bold">
+                <Text fontSize="$4" color="$color11" fontWeight="bold">
                   ID:
                 </Text>
-                <Paragraph fontSize="$4" color="$color">
+                <Paragraph fontSize="$4" color="$color12">
                   {session.user.id}
                 </Paragraph>
               </XStack>
@@ -86,10 +86,10 @@ export default function SettingsTab() {
         </YStack>
       ) : (
         <YStack items="center" gap="$4" pt="$8">
-          <Text fontSize="$5" color="$color">
+          <Text fontSize="$5" color="$color11">
             ログインしていません
           </Text>
-          <Paragraph fontSize="$4" color="$color" textAlign="center">
+          <Paragraph fontSize="$4" color="$color11" textAlign="center">
             アプリを使用するには、ログインしてください
           </Paragraph>
         </YStack>
