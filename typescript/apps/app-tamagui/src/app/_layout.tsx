@@ -60,15 +60,8 @@ function RootLayoutNav() {
   const theme = useTheme();
   const { data: session, isPending } = authClient.useSession();
 
-  const isAuthenticated = session && session.user && session.user.id;
-  console.log(
-    "Authenticated:",
-    !!isAuthenticated,
-    "Session:",
-    session,
-    "Pending:",
-    isPending,
-  );
+  const isAuthenticated = !!(session && session.user && session.user.id);
+
 
   if (isPending) {
     return null; // or loading screen
@@ -77,6 +70,7 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       <Stack>
+                <Stack.Protected guard={isAuthenticated}>
         <Stack.Screen
           name="(tabs)"
           options={{
@@ -96,6 +90,12 @@ function RootLayoutNav() {
               backgroundColor: theme.background.val,
             },
           }}
+          />
+          </Stack.Protected>
+             <Stack.Screen
+          name="loginPage"
+          options={{ headerShown: false }}
+          redirect={!!isAuthenticated}
         />
       </Stack>
     </ThemeProvider>
