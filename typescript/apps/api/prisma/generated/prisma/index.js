@@ -184,7 +184,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/sakaguchiraku/dev/expo-nativewind-better-auth-prisma/typescript/apps/api/prisma/generated/prisma",
+      "value": "/Users/sakaguchiraku/dev/expo-better-auth-prisma/typescript/apps/api/prisma/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -200,7 +200,7 @@ const config = {
     "previewFeatures": [
       "driverAdapters"
     ],
-    "sourceFilePath": "/Users/sakaguchiraku/dev/expo-nativewind-better-auth-prisma/typescript/apps/api/prisma/schema.prisma",
+    "sourceFilePath": "/Users/sakaguchiraku/dev/expo-better-auth-prisma/typescript/apps/api/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
