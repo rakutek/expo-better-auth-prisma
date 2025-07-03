@@ -1,16 +1,16 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet, View, Text, ScrollView } from 'react-native';
+import { Image } from 'expo-image'
+import { Platform, StyleSheet, View, Text, ScrollView } from 'react-native'
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import { Colors } from '@/constants/Colors';
+import { Collapsible } from '@/components/Collapsible'
+import { ExternalLink } from '@/components/ExternalLink'
+import { IconSymbol } from '@/components/ui/IconSymbol'
+import { Colors } from '@/constants/Colors'
 
 export default function TabTwoScreen() {
   return (
-    <ScrollView 
+    <ScrollView
       style={{ flex: 1, backgroundColor: Colors.background }}
-      contentContainerStyle={{ padding: 20, paddingTop: 60 }}>
+      contentContainerStyle={{ padding: 20 }}>
       <View style={[styles.titleContainer, { backgroundColor: Colors.background }]}>
         <Text style={[styles.title, { color: Colors.text }]}>Explore</Text>
       </View>
@@ -69,7 +69,7 @@ export default function TabTwoScreen() {
         })}
       </Collapsible>
     </ScrollView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
   link: {
     textDecorationLine: 'underline',
   },
-});
+})
