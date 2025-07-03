@@ -1,24 +1,16 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet, View, Text } from 'react-native';
+import { Platform, StyleSheet, View, Text, ScrollView } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
 
 export default function TabTwoScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#D0D0D0' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
+    <ScrollView 
+      style={{ flex: 1, backgroundColor: Colors.background }}
+      contentContainerStyle={{ padding: 20, paddingTop: 60 }}>
       <View style={[styles.titleContainer, { backgroundColor: Colors.background }]}>
         <Text style={[styles.title, { color: Colors.text }]}>Explore</Text>
       </View>
@@ -73,15 +65,10 @@ export default function TabTwoScreen() {
           library to create a waving hand animation.
         </Text>
         {Platform.select({
-          ios: (
-            <Text style={{ color: Colors.text }}>
-              The <Text style={[styles.defaultSemiBold, { color: Colors.text }]}>components/ParallaxScrollView.tsx</Text>{' '}
-              component provides a parallax effect for the header image.
-            </Text>
-          ),
+          ios: null,
         })}
       </Collapsible>
-    </ParallaxScrollView>
+    </ScrollView>
   );
 }
 
@@ -95,6 +82,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     gap: 8,
+    marginBottom: 24,
   },
   title: {
     fontSize: 32,

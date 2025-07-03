@@ -1,30 +1,22 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet, Pressable, Alert, View, Text } from 'react-native';
+import { Image } from 'expo-image'
+import { Platform, StyleSheet, Pressable, Alert, View, Text } from 'react-native'
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { authClient } from '@/lib/auth-client';
-import { Colors } from '@/constants/Colors';
+import { HelloWave } from '@/components/HelloWave'
+import { authClient } from '@/lib/auth-client'
+import { Colors } from '@/constants/Colors'
 
 export default function HomeScreen() {
-  
+
   const handleSignOut = async () => {
     try {
-      await authClient.signOut();
+      await authClient.signOut()
     } catch (error) {
-      Alert.alert('Error', 'Failed to sign out');
+      Alert.alert('Error', 'Failed to sign out')
     }
-  };
+  }
 
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#A1CEDC' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
+    <View style={[styles.container, { backgroundColor: Colors.background }]}>
       <View style={[styles.titleContainer, { backgroundColor: Colors.background }]}>
         <Text style={[styles.title, { color: Colors.text }]}>Welcome!</Text>
         <HelloWave />
@@ -65,11 +57,24 @@ export default function HomeScreen() {
           <Text style={styles.signOutText}>Sign Out</Text>
         </Pressable>
       </View>
-    </ParallaxScrollView>
-  );
+    </View>
+  )
 }
-
+const HEADER_HEIGHT = 250
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    height: HEADER_HEIGHT,
+    overflow: 'hidden',
+  },
+  content: {
+    flex: 1,
+    padding: 32,
+    gap: 16,
+    overflow: 'hidden',
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -112,4 +117,5 @@ const styles = StyleSheet.create({
   defaultSemiBold: {
     fontWeight: '600',
   },
-});
+})
+

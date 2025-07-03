@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar'
 import 'react-native-reanimated'
 
 import { authClient } from '@/lib/auth-client'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -20,18 +21,21 @@ export default function RootLayout() {
   return (
     <>
       <Stack>
-        <Stack.Protected guard={isAuthenticated}>
+        <SafeAreaView style={{ flex: 1 }}>
+          <Stack.Protected guard={isAuthenticated}>
+            <Stack.Screen
+              name="(tabs)"
+              options={{ headerShown: false }}
+            />
+
+          </Stack.Protected>
           <Stack.Screen
-            name="(tabs)"
+            name="loginPage"
             options={{ headerShown: false }}
           />
-
-        </Stack.Protected>
-        <Stack.Screen
-          name="loginPage"
-          options={{ headerShown: false }}
-        />
+        </SafeAreaView>
       </Stack>
+
       <StatusBar style="auto" />
     </>
   )
