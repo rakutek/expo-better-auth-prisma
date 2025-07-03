@@ -9,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    // SpaceMono: require('../assets/fonts/LINESeedSans_A_Rg.ttf'),
   })
   const { data: session, isPending } = authClient.useSession()
   const isAuthenticated = !!(session && session.user && session.user.id)
