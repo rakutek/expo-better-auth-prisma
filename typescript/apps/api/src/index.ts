@@ -6,7 +6,7 @@ import { PrismaClient } from "../prisma/generated/prisma";
 import { PrismaPg } from "@prisma/adapter-pg";
 
 export const prisma = () => {
-  const connectionString = `postgresql://postgres:postgres@127.0.0.1:54322/postgres`;
+  const connectionString = `postgresql://postgres:postgres@localhost:54323/postgres`;
   const adapter = new PrismaPg({ connectionString });
   const prisma = new PrismaClient({ adapter });
   return prisma;
