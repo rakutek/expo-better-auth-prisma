@@ -4,7 +4,9 @@
 	"scripts": {
 		"dev": "wrangler dev",
 		"deploy": "wrangler deploy --minify",
-		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"lint": "biome check .",
+		"format": "biome format --write ."
 	},
 	"dependencies": {
 		"@better-auth/expo": "^1.2.9",

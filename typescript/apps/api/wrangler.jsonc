@@ -3,7 +3,7 @@
 	"name": "api",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-06-14",
-	"compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"],
+	"compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"]
 	// "compatibility_flags": [
 	//   "nodejs_compat"
 	// ],

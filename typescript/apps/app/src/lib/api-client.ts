@@ -1,8 +1,8 @@
 import type { AppType } from "api/src/index";
-import { hc } from "hono/client";
-import { authClient } from "./auth-client";
 import Constants from "expo-constants";
+import { hc } from "hono/client";
 import { Platform } from "react-native";
+import { authClient } from "./auth-client";
 
 const baseUrl = process.env.EXPO_PUBLIC_API_BASE_URL || "http://localhost:8787/";
 
@@ -19,7 +19,6 @@ export const getClient = () => {
 		headers,
 	});
 };
-
 
 // This will always have the latest cookies when accessed
 export const client = new Proxy({} as ReturnType<typeof hc<AppType>>, {
