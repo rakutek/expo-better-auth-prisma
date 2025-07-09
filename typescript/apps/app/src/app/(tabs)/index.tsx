@@ -14,11 +14,12 @@ export default function HomeScreen() {
       Alert.alert('Error', 'Failed to sign out')
     }
   }
+  const { data: session, isPending } = authClient.useSession()
 
   return (
     <View style={[styles.container, { backgroundColor: Colors.background }]}>
       <View style={[styles.titleContainer, { backgroundColor: Colors.background }]}>
-        <Text style={[styles.title, { color: Colors.text }]}>Welcome!</Text>
+        <Text style={[styles.title, { color: Colors.text }]}>{session?.user.name}</Text>
         <HelloWave />
       </View>
       <View style={[styles.stepContainer, { backgroundColor: Colors.background }]}>
