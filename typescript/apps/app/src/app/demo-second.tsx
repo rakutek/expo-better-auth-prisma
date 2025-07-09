@@ -29,13 +29,6 @@ export default function DemoSecondScreen() {
       <Stack.Screen
         options={{
           title: 'Second Demo',
-          headerStyle: {
-            backgroundColor: Colors.tint,
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
         }}
       />
       <ScrollView style={[styles.container, { backgroundColor: Colors.background }]}>
@@ -92,16 +85,16 @@ export default function DemoSecondScreen() {
           </View>
 
           <View style={styles.navigationButtons}>
-            <Pressable 
-              style={[styles.navButton, styles.backButton]} 
+            <Pressable
+              style={[styles.navButton, styles.backButton]}
               onPress={() => router.back()}
             >
               <Ionicons name="arrow-back" size={20} color="#fff" />
               <Text style={styles.navButtonText}>Back to Demo Detail</Text>
             </Pressable>
-            
-            <Pressable 
-              style={[styles.navButton, styles.homeButton]} 
+
+            <Pressable
+              style={[styles.navButton, styles.homeButton]}
               onPress={() => router.push('/(tabs)/')}
             >
               <Ionicons name="home" size={20} color="#fff" />

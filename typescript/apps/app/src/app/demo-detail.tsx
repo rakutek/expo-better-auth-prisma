@@ -11,13 +11,6 @@ export default function DemoDetailScreen() {
       <Stack.Screen
         options={{
           title: 'Demo Detail',
-          headerStyle: {
-            backgroundColor: Colors.tint,
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
         }}
       />
       <ScrollView style={[styles.container, { backgroundColor: Colors.background }]}>
