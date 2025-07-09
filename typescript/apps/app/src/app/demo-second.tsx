@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native'
-import { Stack, useRouter } from 'expo-router'
+import { Stack, useRouter, Link } from 'expo-router'
 import { Colors } from '@/constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -93,13 +93,12 @@ export default function DemoSecondScreen() {
               <Text style={styles.navButtonText}>Back to Demo Detail</Text>
             </Pressable>
 
-            <Pressable
-              style={[styles.navButton, styles.homeButton]}
-              onPress={() => router.push('/(tabs)/')}
-            >
-              <Ionicons name="home" size={20} color="#fff" />
-              <Text style={styles.navButtonText}>Back to Home</Text>
-            </Pressable>
+            <Link href="/(tabs)" asChild>
+              <Pressable style={[styles.navButton, styles.homeButton]}>
+                <Ionicons name="home" size={20} color="#fff" />
+                <Text style={styles.navButtonText}>Back to Home</Text>
+              </Pressable>
+            </Link>
           </View>
         </View>
       </ScrollView>
