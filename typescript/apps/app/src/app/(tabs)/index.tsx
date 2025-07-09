@@ -5,9 +5,19 @@ import { Link } from 'expo-router'
 import { HelloWave } from '@/components/HelloWave'
 import { authClient } from '@/lib/auth-client'
 import { Colors } from '@/constants/Colors'
+import { useQuery } from '@tanstack/react-query'
+import { client } from '@/lib/api-client'
 
 export default function HomeScreen() {
   const { data: session, isPending } = authClient.useSession()
+
+  const query = useQuery({
+    queryKey: ['posts'],
+    queryFn: async () => {
+      const res = await client.posts.$get()
+      return await res.json()
+    },
+  })
 
   return (
     <View style={[styles.container, { backgroundColor: Colors.background }]}>
@@ -15,6 +25,7 @@ export default function HomeScreen() {
         <Text style={[styles.title, { color: Colors.text }]}>{session?.user.name}</Text>
         <HelloWave />
       </View>
+      <Text>{query.data?.message}</Text>
       <View style={[styles.stepContainer, { backgroundColor: Colors.background }]}>
         <Text style={[styles.subtitle, { color: Colors.text }]}>Step 1: Try it</Text>
         <Text style={{ color: Colors.text }}>

@@ -5,6 +5,13 @@ import 'react-native-reanimated'
 
 import { authClient } from '@/lib/auth-client'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+
+const queryClient = new QueryClient()
 
 export default function RootLayout() {
 
@@ -17,24 +24,26 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }} edges={['top', 'left', 'right']}>
-        <Stack>
-          <Stack.Protected guard={isAuthenticated}>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }} edges={['top', 'left', 'right']}>
+          <Stack>
+            <Stack.Protected guard={isAuthenticated}>
+              <Stack.Screen
+                name="(tabs)"
+                options={{ headerShown: false }}
+              />
+
+            </Stack.Protected>
             <Stack.Screen
-              name="(tabs)"
+              name="loginPage"
               options={{ headerShown: false }}
             />
+          </Stack>
+        </SafeAreaView>
 
-          </Stack.Protected>
-          <Stack.Screen
-            name="loginPage"
-            options={{ headerShown: false }}
-          />
-        </Stack>
-      </SafeAreaView>
-
-      <StatusBar style="dark" />
-    </SafeAreaProvider>
+        <StatusBar style="dark" />
+      </SafeAreaProvider>
+    </QueryClientProvider>
   )
 }

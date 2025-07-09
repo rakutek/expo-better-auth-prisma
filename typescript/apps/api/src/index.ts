@@ -20,6 +20,15 @@ const routes = app
   .get("/", (c) => {
     return c.text("Hello Hono!");
   })
+  .get(
+    "/posts",
+    async (c) => {
+      return c.json({
+        ok: true,
+        message: "Hello asdffdsHono!",
+      });
+    },
+  )
   .post(
     "/posts",
     zValidator(
