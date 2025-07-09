@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "users" ALTER COLUMN "last_launched_at" SET DEFAULT CURRENT_TIMESTAMP;

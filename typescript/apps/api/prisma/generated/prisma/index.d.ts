@@ -2352,6 +2352,7 @@ export namespace Prisma {
     emailVerified: boolean | null
     image: string | null
     isOnboarded: boolean | null
+    lastLaunchedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2363,6 +2364,7 @@ export namespace Prisma {
     emailVerified: boolean | null
     image: string | null
     isOnboarded: boolean | null
+    lastLaunchedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2374,6 +2376,7 @@ export namespace Prisma {
     emailVerified: number
     image: number
     isOnboarded: number
+    lastLaunchedAt: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -2387,6 +2390,7 @@ export namespace Prisma {
     emailVerified?: true
     image?: true
     isOnboarded?: true
+    lastLaunchedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2398,6 +2402,7 @@ export namespace Prisma {
     emailVerified?: true
     image?: true
     isOnboarded?: true
+    lastLaunchedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2409,6 +2414,7 @@ export namespace Prisma {
     emailVerified?: true
     image?: true
     isOnboarded?: true
+    lastLaunchedAt?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2493,6 +2499,7 @@ export namespace Prisma {
     emailVerified: boolean
     image: string | null
     isOnboarded: boolean | null
+    lastLaunchedAt: Date
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -2521,6 +2528,7 @@ export namespace Prisma {
     emailVerified?: boolean
     image?: boolean
     isOnboarded?: boolean
+    lastLaunchedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
@@ -2535,6 +2543,7 @@ export namespace Prisma {
     emailVerified?: boolean
     image?: boolean
     isOnboarded?: boolean
+    lastLaunchedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2546,6 +2555,7 @@ export namespace Prisma {
     emailVerified?: boolean
     image?: boolean
     isOnboarded?: boolean
+    lastLaunchedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2557,11 +2567,12 @@ export namespace Prisma {
     emailVerified?: boolean
     image?: boolean
     isOnboarded?: boolean
+    lastLaunchedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "isOnboarded" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "isOnboarded" | "lastLaunchedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
@@ -2583,6 +2594,7 @@ export namespace Prisma {
       emailVerified: boolean
       image: string | null
       isOnboarded: boolean | null
+      lastLaunchedAt: Date
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -3016,6 +3028,7 @@ export namespace Prisma {
     readonly emailVerified: FieldRef<"User", 'Boolean'>
     readonly image: FieldRef<"User", 'String'>
     readonly isOnboarded: FieldRef<"User", 'Boolean'>
+    readonly lastLaunchedAt: FieldRef<"User", 'DateTime'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -6773,6 +6786,7 @@ export namespace Prisma {
     emailVerified: 'emailVerified',
     image: 'image',
     isOnboarded: 'isOnboarded',
+    lastLaunchedAt: 'lastLaunchedAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -6994,6 +7008,7 @@ export namespace Prisma {
     emailVerified?: BoolFilter<"User"> | boolean
     image?: StringNullableFilter<"User"> | string | null
     isOnboarded?: BoolNullableFilter<"User"> | boolean | null
+    lastLaunchedAt?: DateTimeFilter<"User"> | Date | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
@@ -7007,6 +7022,7 @@ export namespace Prisma {
     emailVerified?: SortOrder
     image?: SortOrderInput | SortOrder
     isOnboarded?: SortOrderInput | SortOrder
+    lastLaunchedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
@@ -7023,6 +7039,7 @@ export namespace Prisma {
     emailVerified?: BoolFilter<"User"> | boolean
     image?: StringNullableFilter<"User"> | string | null
     isOnboarded?: BoolNullableFilter<"User"> | boolean | null
+    lastLaunchedAt?: DateTimeFilter<"User"> | Date | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
@@ -7036,6 +7053,7 @@ export namespace Prisma {
     emailVerified?: SortOrder
     image?: SortOrderInput | SortOrder
     isOnboarded?: SortOrderInput | SortOrder
+    lastLaunchedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -7053,6 +7071,7 @@ export namespace Prisma {
     emailVerified?: BoolWithAggregatesFilter<"User"> | boolean
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
     isOnboarded?: BoolNullableWithAggregatesFilter<"User"> | boolean | null
+    lastLaunchedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -7353,6 +7372,7 @@ export namespace Prisma {
     emailVerified: boolean
     image?: string | null
     isOnboarded?: boolean | null
+    lastLaunchedAt?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -7366,6 +7386,7 @@ export namespace Prisma {
     emailVerified: boolean
     image?: string | null
     isOnboarded?: boolean | null
+    lastLaunchedAt?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -7379,6 +7400,7 @@ export namespace Prisma {
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isOnboarded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -7392,6 +7414,7 @@ export namespace Prisma {
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isOnboarded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -7405,6 +7428,7 @@ export namespace Prisma {
     emailVerified: boolean
     image?: string | null
     isOnboarded?: boolean | null
+    lastLaunchedAt?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7416,6 +7440,7 @@ export namespace Prisma {
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isOnboarded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7427,6 +7452,7 @@ export namespace Prisma {
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isOnboarded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7898,6 +7924,7 @@ export namespace Prisma {
     emailVerified?: SortOrder
     image?: SortOrder
     isOnboarded?: SortOrder
+    lastLaunchedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7909,6 +7936,7 @@ export namespace Prisma {
     emailVerified?: SortOrder
     image?: SortOrder
     isOnboarded?: SortOrder
+    lastLaunchedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7920,6 +7948,7 @@ export namespace Prisma {
     emailVerified?: SortOrder
     image?: SortOrder
     isOnboarded?: SortOrder
+    lastLaunchedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8596,6 +8625,7 @@ export namespace Prisma {
     emailVerified: boolean
     image?: string | null
     isOnboarded?: boolean | null
+    lastLaunchedAt?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
@@ -8608,6 +8638,7 @@ export namespace Prisma {
     emailVerified: boolean
     image?: string | null
     isOnboarded?: boolean | null
+    lastLaunchedAt?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
@@ -8636,6 +8667,7 @@ export namespace Prisma {
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isOnboarded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
@@ -8648,6 +8680,7 @@ export namespace Prisma {
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isOnboarded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
@@ -8660,6 +8693,7 @@ export namespace Prisma {
     emailVerified: boolean
     image?: string | null
     isOnboarded?: boolean | null
+    lastLaunchedAt?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -8672,6 +8706,7 @@ export namespace Prisma {
     emailVerified: boolean
     image?: string | null
     isOnboarded?: boolean | null
+    lastLaunchedAt?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -8700,6 +8735,7 @@ export namespace Prisma {
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isOnboarded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -8712,6 +8748,7 @@ export namespace Prisma {
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isOnboarded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput

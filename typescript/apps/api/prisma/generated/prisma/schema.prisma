@@ -28,16 +28,17 @@ model Test {
 }
 
 model User {
-  id            String    @id
-  name          String    @map("name")
-  email         String    @map("email")
-  emailVerified Boolean   @map("email_verified")
-  image         String?   @map("image")
-  isOnboarded   Boolean?  @map("is_onboarded")
-  sessions      Session[]
-  accounts      Account[]
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
+  id             String    @id
+  name           String    @map("name")
+  email          String    @map("email")
+  emailVerified  Boolean   @map("email_verified")
+  image          String?   @map("image")
+  isOnboarded    Boolean?  @map("is_onboarded")
+  lastLaunchedAt DateTime  @default(now()) @map("last_launched_at")
+  sessions       Session[]
+  accounts       Account[]
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
 
   @@unique([email])
   @@map("users")
