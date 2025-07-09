@@ -56,23 +56,6 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        <View style={[styles.section, { backgroundColor: Colors.background }]}>
-          <Text style={[styles.sectionTitle, { color: Colors.text }]}>Session Information</Text>
-
-          <View style={[styles.userInfoContainer, { backgroundColor: Colors.background }]}>
-            <View style={styles.userInfoRow}>
-              <Text style={[styles.label, { color: Colors.text }]}>Session ID:</Text>
-              <Text style={[styles.value, { color: Colors.text }]}>{session.id || 'N/A'}</Text>
-            </View>
-
-            <View style={styles.userInfoRow}>
-              <Text style={[styles.label, { color: Colors.text }]}>Expires At:</Text>
-              <Text style={[styles.value, { color: Colors.text }]}>
-                {session.expiresAt ? new Date(session.expiresAt).toLocaleString() : 'N/A'}
-              </Text>
-            </View>
-          </View>
-        </View>
       </View>
     </ScrollView>
   )

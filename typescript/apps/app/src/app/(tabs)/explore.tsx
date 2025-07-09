@@ -48,8 +48,11 @@ export default function TabTwoScreen() {
       <Collapsible title="Custom fonts">
         <Text style={{ color: Colors.text }}>
           Open <Text style={[styles.defaultSemiBold, { color: Colors.text }]}>app/_layout.tsx</Text> to see how to load{' '}
-          <Text style={{ fontFamily: 'SpaceMono', color: Colors.text }}>
-            custom fonts such as this one.
+          <Text style={{ color: Colors.text }}>
+            custom fonts such as this one.坂口楽でう
+          </Text>
+          <Text style={{ color: Colors.text }}>
+            custom fonts such as this one.坂口楽でう
           </Text>
         </Text>
         <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">

@@ -7,14 +7,11 @@ import { authClient } from '@/lib/auth-client'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 export default function RootLayout() {
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    // SpaceMono: require('../assets/fonts/LINESeedSans_A_Rg.ttf'),
-  })
+
   const { data: session, isPending } = authClient.useSession()
   const isAuthenticated = !!(session && session.user && session.user.id)
 
-  if (!loaded || isPending) {
+  if (isPending) {
     // Async font loading only occurs in development.
     return null
   }
