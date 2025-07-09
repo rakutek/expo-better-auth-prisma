@@ -1,12 +1,12 @@
 import { Image } from 'expo-image'
 import { Platform, StyleSheet, Pressable, Alert, View, Text } from 'react-native'
+import { Link } from 'expo-router'
 
 import { HelloWave } from '@/components/HelloWave'
 import { authClient } from '@/lib/auth-client'
 import { Colors } from '@/constants/Colors'
 
 export default function HomeScreen() {
-
   const handleSignOut = async () => {
     try {
       await authClient.signOut()
@@ -14,6 +14,7 @@ export default function HomeScreen() {
       Alert.alert('Error', 'Failed to sign out')
     }
   }
+
   const { data: session, isPending } = authClient.useSession()
 
   return (
@@ -53,6 +54,13 @@ export default function HomeScreen() {
           <Text style={[styles.defaultSemiBold, { color: Colors.text }]}>app-example</Text>.
         </Text>
       </View>
+      <View style={[styles.demoContainer, { backgroundColor: Colors.background }]}>
+        <Link href="/demo-detail" asChild>
+          <Pressable style={styles.demoButton}>
+            <Text style={styles.demoButtonText}>View Demo Detail</Text>
+          </Pressable>
+        </Link>
+      </View>
       <View style={[styles.signOutContainer, { backgroundColor: Colors.background }]}>
         <Pressable style={styles.signOutButton} onPress={handleSignOut}>
           <Text style={styles.signOutText}>Sign Out</Text>
@@ -65,6 +73,7 @@ const HEADER_HEIGHT = 250
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 16,
   },
   header: {
     height: HEADER_HEIGHT,
@@ -91,6 +100,20 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  demoContainer: {
+    marginTop: 16,
+    alignItems: 'center',
+  },
+  demoButton: {
+    backgroundColor: '#007AFF',
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  demoButtonText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
   },
   signOutContainer: {
     marginTop: 32,

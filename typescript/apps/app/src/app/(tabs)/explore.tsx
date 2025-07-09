@@ -9,7 +9,8 @@ import { Colors } from '@/constants/Colors'
 export default function TabTwoScreen() {
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: Colors.background }}>
+      style={{ flex: 1, backgroundColor: Colors.background }}
+      contentContainerStyle={{ paddingHorizontal: 16 }}>
       <View style={[styles.titleContainer, { backgroundColor: Colors.background }]}>
         <Text style={[styles.title, { color: Colors.text }]}>Explore</Text>
       </View>
