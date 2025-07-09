@@ -25,30 +25,30 @@ export default function SettingsScreen() {
     <ScrollView style={[styles.container, { backgroundColor: Colors.background }]}>
       <View style={styles.content}>
         <Text style={[styles.title, { color: Colors.text }]}>Settings</Text>
-        
+
         <View style={[styles.section, { backgroundColor: Colors.background }]}>
           <Text style={[styles.sectionTitle, { color: Colors.text }]}>User Information</Text>
-          
+
           <View style={[styles.userInfoContainer, { backgroundColor: Colors.background }]}>
             {session.user.image && (
               <View style={styles.avatarContainer}>
-                <Image 
-                  source={{ uri: session.user.image }} 
+                <Image
+                  source={{ uri: session.user.image }}
                   style={styles.avatar}
                 />
               </View>
             )}
-            
+
             <View style={styles.userInfoRow}>
               <Text style={[styles.label, { color: Colors.text }]}>Name:</Text>
               <Text style={[styles.value, { color: Colors.text }]}>{session.user.name || 'N/A'}</Text>
             </View>
-            
+
             <View style={styles.userInfoRow}>
               <Text style={[styles.label, { color: Colors.text }]}>Email:</Text>
               <Text style={[styles.value, { color: Colors.text }]}>{session.user.email || 'N/A'}</Text>
             </View>
-            
+
             <View style={styles.userInfoRow}>
               <Text style={[styles.label, { color: Colors.text }]}>User ID:</Text>
               <Text style={[styles.value, { color: Colors.text }]}>{session.user.id || 'N/A'}</Text>
@@ -58,13 +58,13 @@ export default function SettingsScreen() {
 
         <View style={[styles.section, { backgroundColor: Colors.background }]}>
           <Text style={[styles.sectionTitle, { color: Colors.text }]}>Session Information</Text>
-          
+
           <View style={[styles.userInfoContainer, { backgroundColor: Colors.background }]}>
             <View style={styles.userInfoRow}>
               <Text style={[styles.label, { color: Colors.text }]}>Session ID:</Text>
               <Text style={[styles.value, { color: Colors.text }]}>{session.id || 'N/A'}</Text>
             </View>
-            
+
             <View style={styles.userInfoRow}>
               <Text style={[styles.label, { color: Colors.text }]}>Expires At:</Text>
               <Text style={[styles.value, { color: Colors.text }]}>
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    padding: 20,
   },
   title: {
     fontSize: 28,
