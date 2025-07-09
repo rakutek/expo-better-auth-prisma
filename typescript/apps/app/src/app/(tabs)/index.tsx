@@ -7,14 +7,6 @@ import { authClient } from '@/lib/auth-client'
 import { Colors } from '@/constants/Colors'
 
 export default function HomeScreen() {
-  const handleSignOut = async () => {
-    try {
-      await authClient.signOut()
-    } catch (error) {
-      Alert.alert('Error', 'Failed to sign out')
-    }
-  }
-
   const { data: session, isPending } = authClient.useSession()
 
   return (
@@ -60,11 +52,6 @@ export default function HomeScreen() {
             <Text style={styles.demoButtonText}>View Demo Detail</Text>
           </Pressable>
         </Link>
-      </View>
-      <View style={[styles.signOutContainer, { backgroundColor: Colors.background }]}>
-        <Pressable style={styles.signOutButton} onPress={handleSignOut}>
-          <Text style={styles.signOutText}>Sign Out</Text>
-        </Pressable>
       </View>
     </View>
   )
@@ -112,20 +99,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   demoButtonText: {
-    color: '#FFFFFF',
-    fontWeight: 'bold',
-  },
-  signOutContainer: {
-    marginTop: 32,
-    alignItems: 'center',
-  },
-  signOutButton: {
-    backgroundColor: '#FF3B30',
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-    borderRadius: 8,
-  },
-  signOutText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
   },

@@ -1,9 +1,17 @@
-import { View, Text, StyleSheet, ScrollView, Alert, Image } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Alert, Image, Pressable } from 'react-native'
 import { authClient } from '@/lib/auth-client'
 import { Colors } from '@/constants/Colors'
 
 export default function SettingsScreen() {
   const { data: session, isPending } = authClient.useSession()
+
+  const handleSignOut = async () => {
+    try {
+      await authClient.signOut()
+    } catch (error) {
+      Alert.alert('Error', 'Failed to sign out')
+    }
+  }
 
   if (isPending) {
     return (
@@ -54,6 +62,12 @@ export default function SettingsScreen() {
               <Text style={[styles.value, { color: Colors.text }]}>{session.user.id || 'N/A'}</Text>
             </View>
           </View>
+        </View>
+
+        <View style={[styles.signOutContainer, { backgroundColor: Colors.background }]}>
+          <Pressable style={styles.signOutButton} onPress={handleSignOut}>
+            <Text style={styles.signOutText}>Sign Out</Text>
+          </Pressable>
         </View>
 
       </View>
@@ -126,5 +140,19 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     borderWidth: 2,
     borderColor: '#E0E0E0',
+  },
+  signOutContainer: {
+    marginTop: 32,
+    alignItems: 'center',
+  },
+  signOutButton: {
+    backgroundColor: '#FF3B30',
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  signOutText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
   },
 })
