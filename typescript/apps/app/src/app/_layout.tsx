@@ -21,7 +21,7 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff', paddingHorizontal: 16, }} edges={['top', 'left', 'right']}>
         <Stack>
           <Stack.Protected guard={isAuthenticated}>
             <Stack.Screen
