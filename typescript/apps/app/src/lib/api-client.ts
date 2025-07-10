@@ -3,28 +3,41 @@ import Constants from "expo-constants";
 import { hc } from "hono/client";
 import { Platform } from "react-native";
 import { authClient } from "./auth-client";
+import ky from "ky";
 
-const baseUrl = process.env.EXPO_PUBLIC_API_BASE_URL || "http://localhost:8787/";
+const baseUrl = process.env.EXPO_PUBLIC_API_BASE_URL || "http://localhost:8787";
 
-// Create a factory function that returns a fresh client with the latest cookies
-export const getClient = () => {
-	const cookies = authClient.getCookie();
-
-	const headers = {
-		Cookie: cookies,
-		"X-Timezone": Intl.DateTimeFormat().resolvedOptions().timeZone || "Asia/Tokyo",
-	};
-
-	return hc<AppType>(baseUrl, {
-		headers,
-	});
-};
-
-// This will always have the latest cookies when accessed
-export const client = new Proxy({} as ReturnType<typeof hc<AppType>>, {
-	get: (target, prop) => {
-		// Always get a fresh client when any property is accessed
-		const freshClient = getClient();
-		return freshClient[prop as keyof typeof freshClient];
-	},
+const kyapi = ky.extend({
+  hooks: {
+    beforeRequest: [(request) => {}],
+    afterResponse: [
+      (_, __, response: Response) => {
+        // console.log(response);
+        if (response.ok) {
+          return response;
+        } else if (response.status === 401) {
+          throw new Error(response.statusText);
+        } else if (response.status === 503) {
+          // メンテナスページにリダイレクトしてください
+		}else {
+          throw new Error(response.statusText);
+        }
+      },
+    ],
+  },
 });
+
+export const client = hc<AppType>(`/`, {
+	
+  fetch: (input: RequestInfo | URL, requestInit?: RequestInit) => {
+    return kyapi(`${baseUrl}${input}`, {
+      method: requestInit?.method,
+      headers: {
+		Cookie: authClient.getCookie()
+      },
+      body: requestInit?.body,
+    });
+  },
+});
+
+export const api = client.api;
