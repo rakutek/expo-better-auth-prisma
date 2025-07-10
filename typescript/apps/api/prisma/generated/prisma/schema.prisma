@@ -16,15 +16,23 @@ datasource db {
 }
 
 model Test {
-  id        Int      @id @default(autoincrement())
-  name      String   @map("name")
-  email     String   @map("email")
-  age       Int?     @map("age")
-  isActive  Boolean  @default(true) @map("is_active")
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  id                  Int      @id @default(autoincrement())
+  name                String   @map("name")
+  email               String   @map("email")
+  age                 Int?     @map("age")
+  isActive            Boolean  @default(true) @map("is_active")
+  lastLaunchedAt      DateTime @default(now()) @map("last_launched_at")
+  last_launch_os      OS       @map("last_launch_os")
+  last_launch_version String   @map("last_launch_version")
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
 
   @@map("tests")
+}
+
+enum OS {
+  IOS
+  ANDROID
 }
 
 model User {

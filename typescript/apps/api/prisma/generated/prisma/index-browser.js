@@ -126,6 +126,9 @@ exports.Prisma.TestScalarFieldEnum = {
   email: 'email',
   age: 'age',
   isActive: 'isActive',
+  lastLaunchedAt: 'lastLaunchedAt',
+  last_launch_os: 'last_launch_os',
+  last_launch_version: 'last_launch_version',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -192,7 +195,10 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.OS = exports.$Enums.OS = {
+  IOS: 'IOS',
+  ANDROID: 'ANDROID'
+};
 
 exports.Prisma.ModelName = {
   Test: 'Test',

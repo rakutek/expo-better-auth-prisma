@@ -40,6 +40,23 @@ export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
 export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
 
 /**
+ * Enums
+ */
+export namespace $Enums {
+  export const OS: {
+  IOS: 'IOS',
+  ANDROID: 'ANDROID'
+};
+
+export type OS = (typeof OS)[keyof typeof OS]
+
+}
+
+export type OS = $Enums.OS
+
+export const OS: typeof $Enums.OS
+
+/**
  * ##  Prisma Client ʲˢ
  *
  * Type-safe database client for TypeScript & Node.js
@@ -1304,6 +1321,9 @@ export namespace Prisma {
     email: string | null
     age: number | null
     isActive: boolean | null
+    lastLaunchedAt: Date | null
+    last_launch_os: $Enums.OS | null
+    last_launch_version: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1314,6 +1334,9 @@ export namespace Prisma {
     email: string | null
     age: number | null
     isActive: boolean | null
+    lastLaunchedAt: Date | null
+    last_launch_os: $Enums.OS | null
+    last_launch_version: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1324,6 +1347,9 @@ export namespace Prisma {
     email: number
     age: number
     isActive: number
+    lastLaunchedAt: number
+    last_launch_os: number
+    last_launch_version: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1346,6 +1372,9 @@ export namespace Prisma {
     email?: true
     age?: true
     isActive?: true
+    lastLaunchedAt?: true
+    last_launch_os?: true
+    last_launch_version?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1356,6 +1385,9 @@ export namespace Prisma {
     email?: true
     age?: true
     isActive?: true
+    lastLaunchedAt?: true
+    last_launch_os?: true
+    last_launch_version?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1366,6 +1398,9 @@ export namespace Prisma {
     email?: true
     age?: true
     isActive?: true
+    lastLaunchedAt?: true
+    last_launch_os?: true
+    last_launch_version?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1463,6 +1498,9 @@ export namespace Prisma {
     email: string
     age: number | null
     isActive: boolean
+    lastLaunchedAt: Date
+    last_launch_os: $Enums.OS
+    last_launch_version: string
     createdAt: Date
     updatedAt: Date
     _count: TestCountAggregateOutputType | null
@@ -1492,6 +1530,9 @@ export namespace Prisma {
     email?: boolean
     age?: boolean
     isActive?: boolean
+    lastLaunchedAt?: boolean
+    last_launch_os?: boolean
+    last_launch_version?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["test"]>
@@ -1502,6 +1543,9 @@ export namespace Prisma {
     email?: boolean
     age?: boolean
     isActive?: boolean
+    lastLaunchedAt?: boolean
+    last_launch_os?: boolean
+    last_launch_version?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["test"]>
@@ -1512,6 +1556,9 @@ export namespace Prisma {
     email?: boolean
     age?: boolean
     isActive?: boolean
+    lastLaunchedAt?: boolean
+    last_launch_os?: boolean
+    last_launch_version?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["test"]>
@@ -1522,11 +1569,14 @@ export namespace Prisma {
     email?: boolean
     age?: boolean
     isActive?: boolean
+    lastLaunchedAt?: boolean
+    last_launch_os?: boolean
+    last_launch_version?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type TestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "age" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["test"]>
+  export type TestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "age" | "isActive" | "lastLaunchedAt" | "last_launch_os" | "last_launch_version" | "createdAt" | "updatedAt", ExtArgs["result"]["test"]>
 
   export type $TestPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Test"
@@ -1537,6 +1587,9 @@ export namespace Prisma {
       email: string
       age: number | null
       isActive: boolean
+      lastLaunchedAt: Date
+      last_launch_os: $Enums.OS
+      last_launch_version: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["test"]>
@@ -1967,6 +2020,9 @@ export namespace Prisma {
     readonly email: FieldRef<"Test", 'String'>
     readonly age: FieldRef<"Test", 'Int'>
     readonly isActive: FieldRef<"Test", 'Boolean'>
+    readonly lastLaunchedAt: FieldRef<"Test", 'DateTime'>
+    readonly last_launch_os: FieldRef<"Test", 'OS'>
+    readonly last_launch_version: FieldRef<"Test", 'String'>
     readonly createdAt: FieldRef<"Test", 'DateTime'>
     readonly updatedAt: FieldRef<"Test", 'DateTime'>
   }
@@ -6772,6 +6828,9 @@ export namespace Prisma {
     email: 'email',
     age: 'age',
     isActive: 'isActive',
+    lastLaunchedAt: 'lastLaunchedAt',
+    last_launch_os: 'last_launch_os',
+    last_launch_version: 'last_launch_version',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -6918,6 +6977,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'OS'
+   */
+  export type EnumOSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OS'>
+    
+
+
+  /**
+   * Reference to a field of type 'OS[]'
+   */
+  export type ListEnumOSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OS[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -6943,6 +7016,9 @@ export namespace Prisma {
     email?: StringFilter<"Test"> | string
     age?: IntNullableFilter<"Test"> | number | null
     isActive?: BoolFilter<"Test"> | boolean
+    lastLaunchedAt?: DateTimeFilter<"Test"> | Date | string
+    last_launch_os?: EnumOSFilter<"Test"> | $Enums.OS
+    last_launch_version?: StringFilter<"Test"> | string
     createdAt?: DateTimeFilter<"Test"> | Date | string
     updatedAt?: DateTimeFilter<"Test"> | Date | string
   }
@@ -6953,6 +7029,9 @@ export namespace Prisma {
     email?: SortOrder
     age?: SortOrderInput | SortOrder
     isActive?: SortOrder
+    lastLaunchedAt?: SortOrder
+    last_launch_os?: SortOrder
+    last_launch_version?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6966,6 +7045,9 @@ export namespace Prisma {
     email?: StringFilter<"Test"> | string
     age?: IntNullableFilter<"Test"> | number | null
     isActive?: BoolFilter<"Test"> | boolean
+    lastLaunchedAt?: DateTimeFilter<"Test"> | Date | string
+    last_launch_os?: EnumOSFilter<"Test"> | $Enums.OS
+    last_launch_version?: StringFilter<"Test"> | string
     createdAt?: DateTimeFilter<"Test"> | Date | string
     updatedAt?: DateTimeFilter<"Test"> | Date | string
   }, "id">
@@ -6976,6 +7058,9 @@ export namespace Prisma {
     email?: SortOrder
     age?: SortOrderInput | SortOrder
     isActive?: SortOrder
+    lastLaunchedAt?: SortOrder
+    last_launch_os?: SortOrder
+    last_launch_version?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: TestCountOrderByAggregateInput
@@ -6994,6 +7079,9 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"Test"> | string
     age?: IntNullableWithAggregatesFilter<"Test"> | number | null
     isActive?: BoolWithAggregatesFilter<"Test"> | boolean
+    lastLaunchedAt?: DateTimeWithAggregatesFilter<"Test"> | Date | string
+    last_launch_os?: EnumOSWithAggregatesFilter<"Test"> | $Enums.OS
+    last_launch_version?: StringWithAggregatesFilter<"Test"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Test"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Test"> | Date | string
   }
@@ -7303,6 +7391,9 @@ export namespace Prisma {
     email: string
     age?: number | null
     isActive?: boolean
+    lastLaunchedAt?: Date | string
+    last_launch_os: $Enums.OS
+    last_launch_version: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7313,6 +7404,9 @@ export namespace Prisma {
     email: string
     age?: number | null
     isActive?: boolean
+    lastLaunchedAt?: Date | string
+    last_launch_os: $Enums.OS
+    last_launch_version: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7322,6 +7416,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_launch_os?: EnumOSFieldUpdateOperationsInput | $Enums.OS
+    last_launch_version?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7332,6 +7429,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_launch_os?: EnumOSFieldUpdateOperationsInput | $Enums.OS
+    last_launch_version?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7342,6 +7442,9 @@ export namespace Prisma {
     email: string
     age?: number | null
     isActive?: boolean
+    lastLaunchedAt?: Date | string
+    last_launch_os: $Enums.OS
+    last_launch_version: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7351,6 +7454,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_launch_os?: EnumOSFieldUpdateOperationsInput | $Enums.OS
+    last_launch_version?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7361,6 +7467,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastLaunchedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_launch_os?: EnumOSFieldUpdateOperationsInput | $Enums.OS
+    last_launch_version?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7760,6 +7869,13 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type EnumOSFilter<$PrismaModel = never> = {
+    equals?: $Enums.OS | EnumOSFieldRefInput<$PrismaModel>
+    in?: $Enums.OS[] | ListEnumOSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OS[] | ListEnumOSFieldRefInput<$PrismaModel>
+    not?: NestedEnumOSFilter<$PrismaModel> | $Enums.OS
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -7771,6 +7887,9 @@ export namespace Prisma {
     email?: SortOrder
     age?: SortOrder
     isActive?: SortOrder
+    lastLaunchedAt?: SortOrder
+    last_launch_os?: SortOrder
+    last_launch_version?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7786,6 +7905,9 @@ export namespace Prisma {
     email?: SortOrder
     age?: SortOrder
     isActive?: SortOrder
+    lastLaunchedAt?: SortOrder
+    last_launch_os?: SortOrder
+    last_launch_version?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7796,6 +7918,9 @@ export namespace Prisma {
     email?: SortOrder
     age?: SortOrder
     isActive?: SortOrder
+    lastLaunchedAt?: SortOrder
+    last_launch_os?: SortOrder
+    last_launch_version?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7875,6 +8000,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type EnumOSWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OS | EnumOSFieldRefInput<$PrismaModel>
+    in?: $Enums.OS[] | ListEnumOSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OS[] | ListEnumOSFieldRefInput<$PrismaModel>
+    not?: NestedEnumOSWithAggregatesFilter<$PrismaModel> | $Enums.OS
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOSFilter<$PrismaModel>
+    _max?: NestedEnumOSFilter<$PrismaModel>
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -8137,6 +8272,10 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type EnumOSFieldUpdateOperationsInput = {
+    set?: $Enums.OS
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -8321,6 +8460,13 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type NestedEnumOSFilter<$PrismaModel = never> = {
+    equals?: $Enums.OS | EnumOSFieldRefInput<$PrismaModel>
+    in?: $Enums.OS[] | ListEnumOSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OS[] | ListEnumOSFieldRefInput<$PrismaModel>
+    not?: NestedEnumOSFilter<$PrismaModel> | $Enums.OS
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -8412,6 +8558,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumOSWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OS | EnumOSFieldRefInput<$PrismaModel>
+    in?: $Enums.OS[] | ListEnumOSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OS[] | ListEnumOSFieldRefInput<$PrismaModel>
+    not?: NestedEnumOSWithAggregatesFilter<$PrismaModel> | $Enums.OS
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOSFilter<$PrismaModel>
+    _max?: NestedEnumOSFilter<$PrismaModel>
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
