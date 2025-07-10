@@ -4,6 +4,7 @@ import { hc } from "hono/client";
 import { Platform } from "react-native";
 import { authClient } from "./auth-client";
 import ky from "ky";
+import { router } from "expo-router";
 
 const baseUrl = process.env.EXPO_PUBLIC_API_BASE_URL || "http://localhost:8787";
 
@@ -18,8 +19,8 @@ const kyapi = ky.extend({
         } else if (response.status === 401) {
           throw new Error(response.statusText);
         } else if (response.status === 503) {
-          // メンテナスページにリダイレクトしてください
-		}else {
+          router.replace("/maintenance");
+        } else {
           throw new Error(response.statusText);
         }
       },
