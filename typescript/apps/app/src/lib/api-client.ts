@@ -34,7 +34,11 @@ export const client = hc<AppType>(`/`, {
     return kyapi(`${baseUrl}${input}`, {
       method: requestInit?.method,
       headers: {
-		Cookie: authClient.getCookie()
+		Cookie: authClient.getCookie(),
+		"X-Platform": Platform.OS,
+		"X-Platform-Version": Platform.Version?.toString() || "unknown",
+		"X-Build-Version": Constants.expoConfig?.version || "unknown",
+		"X-Native-Build-Version": (Constants.expoConfig?.ios?.buildNumber || Constants.expoConfig?.android?.versionCode || "unknown").toString(),
       },
       body: requestInit?.body,
     });
