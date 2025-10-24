@@ -14,7 +14,7 @@
 		"@prisma/adapter-pg": "^6.9.0",
 		"@prisma/client": "6.9.0",
 		"better-auth": "^1.2.10",
-		"hono": "^4.7.11",
+		"hono": "^4.10.3",
 		"zod": "^3.25.64"
 	},
 	"devDependencies": {
